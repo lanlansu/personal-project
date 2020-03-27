@@ -1,0 +1,27 @@
+{
+  "name": "personalProject",
+  "version": "1.0.0",
+  "description": "This is my first personal prject for presentation.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanlansu/personal-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lanlansu/personal-project/issues"
+  },
+  "homepage": "https://github.com/lanlansu/personal-project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.6",
+    "nodemon": "^2.0.2",
+    "pug": "^2.0.4"
+  }
+}
