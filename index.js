@@ -8,6 +8,8 @@ app.use(express.static('public'))
 
 //Modules
 const home = require('./routes/home');
+const chat = require('./routes/chat');
 app.get('/', home);
+app.get('/chat', chat);
 
 app.listen(port, () => console.log(`personal project running on port ${port}!`)) 
