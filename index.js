@@ -9,7 +9,9 @@ app.use(express.static('public'))
 //Modules
 const home = require('./routes/home');
 const chat = require('./routes/chat');
+const signIn = require('./routes/signIn');
 app.get('/', home);
 app.get('/chat', chat);
+app.get('/signIn', signIn);
 
 app.listen(port, () => console.log(`personal project running on port ${port}!`)) 

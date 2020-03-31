@@ -1,0 +1,16 @@
+extend ./layout.pug
+
+block content
+ form(action="/action_page.php" method="post")
+  .form-group
+    label(for='exampleDropdownFormEmail2') Email address
+    input#exampleDropdownFormEmail2.form-control(type='email' placeholder='email@example.com')
+  .form-group
+    label(for='exampleDropdownFormPassword2') Password
+    input#exampleDropdownFormPassword2.form-control(type='password' placeholder='Password')
+  .form-group
+    .form-check
+      input#dropdownCheck2.form-check-input(type='checkbox')
+      label.form-check-label(for='dropdownCheck2')
+        | Remember me
+  button.btn.btn-primary(type='submit') Sign in
