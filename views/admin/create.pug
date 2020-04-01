@@ -1,0 +1,14 @@
+extend ../layout.pug
+
+block content
+  form(action='/admin/create' method='post' enctype="multipart/form-data")
+   .form-group
+    label(for='title') title:
+    input#title.form-control(type='text' placeholder='Enter title' name='title')
+   .form-group
+    label(for='image') image:
+    input#title.form-control(type='text' placeholder='image' name='image')
+   .form-group
+    label(for='content') Content:
+    textarea#content.form-control(rows='5' placeholder='Enter content' name='content')
+   button.btn.btn-primary(type='submit' value='submit') Submit
