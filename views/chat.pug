@@ -1,4 +1,13 @@
 extend ./layout.pug
 
 block content
-  h1 welcome to chat pets
+  .card.mb-3(style='max-width: 540px;')
+      .row.no-gutters 
+        .col-md-3
+          img.card-img(src=topic.image alt=topic.title)
+        .col-md-9
+          .card-body
+            h5.card-title=topic.title
+            p.card-text=topic.content
+            p.card-text
+              small.text-muted Last updated #{topic.times} mins ago
