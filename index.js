@@ -21,6 +21,8 @@ const signIn = require('./routes/signIn');
 const adminCreate = require('./routes/admin/create');
 const adminCreatePost = require('./routes/admin/createPost');
 const adminDelete = require('./routes/admin/delete');
+const adminUpdate = require('./routes/admin/update');
+const adminUpdatePost = require('./routes/admin/updatePost');
 
 //Routes
 app.get('/', home);
@@ -28,6 +30,9 @@ app.get('/chat/:id', chat);
 app.get('/signIn', signIn);
 app.get('/admin/create', adminCreate);
 app.post('/admin/create', upload.single('file'), adminCreatePost);
+app.post('/admin/update/:id', upload.single('file'), adminUpdatePost);
+app.get('/admin/update/:id', adminUpdate);
+
 app.get('/admin/delete/:id', adminDelete);
 
 app.listen(port, () => console.log(`personal project running on port ${port}!`)) 

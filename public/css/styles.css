@@ -1,3 +1,15 @@
-body {
-    background-color: burlywood;
-}
+.custombackground {
+    background-color: white;
+  }
+
+ body {
+    background-image: url("https://www.canva.com/learn/wp-content/uploads/2020/03/Turquoise-Dogs-and-Paw-Print-Cute-Zoom-Virtual-Background.png");
+  }
+
+  .navbColor {
+    background-color: ghostwhite;
+  }
+
+  .test {
+    background-color: lightblue;
+  }
