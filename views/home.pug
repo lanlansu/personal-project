@@ -24,6 +24,5 @@ block content
                         p.card-text
                           small.text-muted Last updated #{topic.times} mins ago
                     .col-md-2
-                      if user
-                        h5 #{user.username}
+                        h5 #{topic.author.username}
       .col-sm-3.test

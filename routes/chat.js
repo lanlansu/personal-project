@@ -2,7 +2,7 @@ const Topic = require('../models/topic');
 
 const chat = async (req, res) => {  
     const id = req.params.id;
-    const topic = await Topic.findById(id).exec();
+    const topic = await Topic.findById(id).populate('author').exec();
     console.log('user:', req.user)
     res.render('chat', {topic, user: req.user});
 }

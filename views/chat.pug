@@ -7,8 +7,7 @@ block content
       .col-sm-8.custombackground
         .row.align-items-center
           .col.text-left
-            if user
-              h5 #{user.username}
+              h5 Author: #{topic.author.username}
           .col
             .dropdown.float-right
               button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')

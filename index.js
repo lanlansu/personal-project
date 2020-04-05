@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000
 const multer  = require('multer');
 const passport  = require('passport');
 const upload = multer({ dest: 'upload' });
+const ensureLogin = require('connect-ensure-login').ensureLoggedIn;
 
 //Middlewares
 app.set('view engine', 'pug');
@@ -45,7 +46,7 @@ app.get('/signIn', signIn);
 app.post('/signIn', passport.authenticate('local', { failureRedirect: '/signIn?error=' +  'Invalid username and value'}), handleSignin);
 app.get('/signUp', signUp);
 app.post('/signUp', handleSignup);
-app.get('/admin/create', adminCreate);
+app.get('/admin/create', ensureLogin('/signIn'), adminCreate);
 app.post('/admin/create', upload.single('file'), adminCreatePost);
 app.post('/admin/update/:id', upload.single('file'), adminUpdatePost);
 app.get('/admin/update/:id', adminUpdate);

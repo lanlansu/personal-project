@@ -1,7 +1,7 @@
 const Topic = require('../models/topic');
 
 const home = async (req, res) => {  
-    const topics = await Topic.find().exec();
+    const topics = await Topic.find().populate('author').exec();
     // const topics = [
     //     {
     //         id: 1,
