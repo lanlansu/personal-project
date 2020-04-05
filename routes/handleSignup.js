@@ -4,7 +4,8 @@ const signup = async (req, res) => {
     const newUser = {
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        avatar: '/img/avatar/avatar' + 1 + '.jpg'
     }
     const user = await new User(newUser).save()
     console.log("New User: ", user)

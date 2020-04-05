@@ -16,10 +16,11 @@ const home = async (req, res) => {
     //         title: "dog2",
     //         times: 5,
     //         image:"https://www.vettedpetcare.com/vetted-blog/wp-content/uploads/2018/04/my-cat-is-nearing-end-of-life-square.jpeg",
-    //         content:"Wow..I surely missed a posting on this right? It is so important that we know what we should NOT give our pets. Below is a list of over the counter medications that we should never give our dogs." 
+    //         content:"Wow..I surely missed a posting on this right? It is so important that we know what we should NOT give our pets. Below is a list of over th. counter medications that we should never give our dogs." 
             
     //     }
     // ]
+    console.log('user', req.user)
     res.render('home', {topics, user: req.user});
 }
 

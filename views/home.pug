@@ -30,9 +30,37 @@ block content
           .col-sm
             .card
               .card-body
-                img.rounded-circle(src='user.image' alt='user.username' width='100' height='80')
-                h5.card-title username
-                p.card-text Blogs:
-                a.btn.btn-primary(href='#') SignIn
-                a.btn.btn-primary.float-right(href='#') SignUp
+                if user
+                  img.rounded-circle(src=user.avatar alt=user.username width='100' height='80')
+                  h5.card-title #{user.username}
+                  p.card-text Blogs:
+                  a.btn.btn-primary.float-right(href='/logout') Logout   
+                else
+                  a.btn.btn-primary(href='/signIn') SignIn
+                  a.btn.btn-primary.float-right(href='/signUp') SignUp
+        .row
+          .col-sm
+                .card.bg-light.mb-3(style='max-width: 18rem;')
+                  .card-header Pets for Adoption
+                  .card-body
+                    p.card-text
+                      a.d-block(href='https://spca.bc.ca/locations/vancouver/') BCSPCA
+                      a.d-block(href='https://www.kijiji.ca/b-dogs-puppies/vancouver/c126l1700287') Adopt Puppies in Vancouver
+                      a.d-block(href='https://www.forallanimals.org/') For All Animals
+        .row
+          .col-sm
+                .card.bg-light.mb-3(style='max-width: 18rem;')
+                  .card-header Pets Clinics
+                  .card-body
+                    p.card-text
+                      a.d-block(href='https://spca.bc.ca/locations/vancouver/') BCSPCA
+                      a.d-block(href='https://www.kijiji.ca/b-dogs-puppies/vancouver/c126l1700287') Adopt Puppies in Vancouver
+                      a.d-block(href='https://www.forallanimals.org/') For All Animals
+                   
+
+        
+                
+
+
+                
   
