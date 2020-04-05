@@ -1,12 +1,23 @@
 //NPM Modules
 const express = require('express');
-const mongoose = require('mongoose');
 const app = express()
 const port = process.env.PORT || 3000
+const mongoose = require('mongoose');
+const ensureLogin = require('connect-ensure-login').ensureLoggedIn;
+
 const multer  = require('multer');
 const passport  = require('passport');
-const upload = multer({ dest: 'upload' });
-const ensureLogin = require('connect-ensure-login').ensureLoggedIn;
+
+// SET STORAGE
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/img/upload')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname)
+    }
+})
+const upload = multer({ storage: storage });
 
 //Middlewares
 app.set('view engine', 'pug');
@@ -47,10 +58,10 @@ app.post('/signIn', passport.authenticate('local', { failureRedirect: '/signIn?e
 app.get('/signUp', signUp);
 app.post('/signUp', handleSignup);
 app.get('/admin/create', ensureLogin('/signIn'), adminCreate);
-app.post('/admin/create', upload.single('file'), adminCreatePost);
-app.post('/admin/update/:id', upload.single('file'), adminUpdatePost);
-app.get('/admin/update/:id', adminUpdate);
+app.post('/admin/create', ensureLogin('/signIn'), upload.single('file'), adminCreatePost);
+app.post('/admin/update/:id', ensureLogin('/signIn'), upload.single('file'), adminUpdatePost);
+app.get('/admin/update/:id', ensureLogin('/signIn'), adminUpdate);
 app.get('/logout', logOut);
-app.get('/admin/delete/:id', adminDelete);
+app.get('/admin/delete/:id', ensureLogin('/signIn'), adminDelete);
 
 app.listen(port, () => console.log(`personal project running on port ${port}!`)) 

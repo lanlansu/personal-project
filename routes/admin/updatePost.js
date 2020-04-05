@@ -5,7 +5,7 @@ const update = async (req, res) => {
         title: req.body.title,
         times: req.body.times,
         content: req.body.content,
-        image: req.body.image
+        image: req.file.originalname
     }
     let filter = { _id: id };
 
