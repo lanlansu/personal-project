@@ -3,11 +3,12 @@ extend ./layout.pug
 block content
   .container
     .row
-      .col-1
-      .col-8.custombackground
-        .row
+      .col-sm-1
+      .col-sm-8.custombackground
+        .row.align-items-center
           .col.text-left
-            h5 user name
+            if user
+              h5 #{user.username}
           .col
             .dropdown.float-right
               button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
@@ -15,27 +16,11 @@ block content
               .dropdown-menu(aria-labelledby='dropdownMenuButton')
                 a.dropdown-item(href='/admin/delete/' + topic.id) Delete
                 a.dropdown-item(href='/admin/update/'+ topic.id) Update
-        row
-          img.card-img(src=topic.image alt=topic.title)
-          h5.card-title=topic.title
-          p.card-text=topic.content
-          p.card-text
-            small.text-muted Last updated #{topic.times} mins ago
-      .col-3.test
-   
-          
-      
-
-
-
-
-  //- .card.mb-3(style='max-width: 540px;')
-  //-     .row.no-gutters 
-  //-       .col-md-3
-  //-         img.card-img(src=topic.image alt=topic.title)
-  //-       .col-md-9
-  //-         .card-body
-  //-           h5.card-title=topic.title
-  //-           p.card-text=topic.content
-  //-           p.card-text
-  //-             small.text-muted Last updated #{topic.times} mins ago
+        .row.justify-content-center.px-5
+          .col
+            img.card-img(src=topic.image alt=topic.title)
+            h5.card-title=topic.title
+            p.card-text=topic.content
+            p.card-text
+              small.text-muted Last updated #{topic.times} mins ago
+      .col-sm-3.test

@@ -20,7 +20,7 @@ const home = async (req, res) => {
             
     //     }
     // ]
-    res.render('home', {topics});
+    res.render('home', {topics, user: req.user});
 }
 
 module.exports = home;

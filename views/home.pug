@@ -3,8 +3,8 @@ extend ./layout.pug
 block content
   .container
     .row
-      .col-1
-      .col-8.custombackground
+      .col-sm-1
+      .col-sm-8.custombackground
         .row
           .col-sm-7.text-center 
             h5 Title                
@@ -14,13 +14,16 @@ block content
             a.btn.btn-primary(href='/admin/create') Post
         each topic in topics
           a(href='/chat/'+ topic.id style='text-decoration: none')
-            .card.mb-3(style='max-width: 540px;')
-            .row.no-gutters 
-              .col-md-3
-                img.card-img(src=topic.image alt=topic.title)
-              .col-md-9
-                .card-body
-                  h5.card-title=topic.title
-                  p.card-text
-                    small.text-muted Last updated #{topic.times} mins ago
-      .col-3.test
+              .card.mb-3(style='max-width: 640px;')
+                .row.no-gutters 
+                    .col-md-3
+                        img.card-img(src=topic.image alt=topic.title)
+                    .col-md-7
+                      .card-body
+                        h5.card-title=topic.title
+                        p.card-text
+                          small.text-muted Last updated #{topic.times} mins ago
+                    .col-md-2
+                      if user
+                        h5 #{user.username}
+      .col-sm-3.test

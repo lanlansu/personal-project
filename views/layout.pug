@@ -13,8 +13,12 @@ body
         | Home 
         span.sr-only (current)
       a.nav-item.nav-link(href='/admin/create') Post
-      a.nav-item.nav-link(href='/signIn') SignIn
-
+      if user
+        a.nav-item.nav-link(href='/logout') Logout   
+      else
+        a.nav-item.nav-link(href='/signIn') SignIn
+        a.nav-item.nav-link(href='/signUp') SignUp
+                
  .container
   block content
  script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js' integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n' crossorigin='anonymous')
