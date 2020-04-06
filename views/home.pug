@@ -7,37 +7,37 @@ block content
       .col-sm-8.custombackground
         .row
           .col-sm-7.text-center 
-            h5 Title                
-          .col-sm-3.text-left 
-            h5 Author       
+            //h5 Title                
+          .col-sm-3.text-center
+           // h5 Author       
           .col-sm-2.text-right
-            a.btn.btn-primary(href='/admin/create') Post
+            a.btn.btn-primary.btn-sm.mt-2(href='/admin/create') Post
         each topic in topics
           a(href='/chat/'+ topic.id style='text-decoration: none')
               .card.mb-3(style='max-width: 640px;')
                 .row.no-gutters 
-                    .col-md-3
+                    .col-sm-3
                         img.card-img(src=topic.image alt=topic.title)
-                    .col-md-7
+                    .col-sm-6
                       .card-body
                         h5.card-title=topic.title
                         p.card-text
-                          small.text-muted Last updated #{topic.updatedAt}
-                    .col-md-2
-                        h5 #{topic.author.username}
+                          small.text-muted Last updated #{topic.updatedAtFormatted}
+                    .col-sm-3.text-center
+                        img.rounded-circle.mt-3(src=topic.author.avatar alt=topic.author.username width='50' height='50')
+                        p.text-center #{topic.author.username}
       .col-sm-3.test
         .row
           .col-sm
             .card
               .card-body
                 if user
-                  img.rounded-circle(src=user.avatar alt=user.username width='100' height='80')
-                  h5.card-title #{user.username}
-                  p.card-text Blogs:
-                  a.btn.btn-primary.float-right(href='/logout') Logout   
+                  img.rounded-circle.imgCenter(src=user.avatar alt=user.username width='100' height='80')
+                  h5.card-title.text-center #{user.username}
+                  a.nav-item.nav-link.text-center(href='/logout') Logout    
                 else
-                  a.btn.btn-primary(href='/signIn') SignIn
-                  a.btn.btn-primary.float-right(href='/signUp') SignUp
+                  a.btn.btn-primary.btn-sm(href='/signIn') SignIn
+                  a.btn.btn-primary.btn-sm.float-right(href='/signUp') SignUp
         .row
           .col-sm
                 .card.bg-light.mb-3(style='max-width: 18rem;')

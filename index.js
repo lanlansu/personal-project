@@ -48,6 +48,7 @@ const adminCreatePost = require('./routes/admin/createPost');
 const adminDelete = require('./routes/admin/delete');
 const adminUpdate = require('./routes/admin/update');
 const adminUpdatePost = require('./routes/admin/updatePost');
+const comment = require('./routes/comment');
 require('./config/passport-config');
 
 //Routes
@@ -60,6 +61,7 @@ app.post('/signUp', handleSignup);
 app.get('/admin/create', ensureLogin('/signIn'), adminCreate);
 app.post('/admin/create', ensureLogin('/signIn'), upload.single('file'), adminCreatePost);
 app.post('/admin/update/:id', ensureLogin('/signIn'), upload.single('file'), adminUpdatePost);
+app.post('/comment', ensureLogin('/signIn'), comment);
 app.get('/admin/update/:id', ensureLogin('/signIn'), adminUpdate);
 app.get('/logout', logOut);
 app.get('/admin/delete/:id', ensureLogin('/signIn'), adminDelete);

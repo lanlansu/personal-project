@@ -1,7 +1,13 @@
 const Topic = require('../models/topic');
+const moment = require('moment');
 
 const home = async (req, res) => {  
     const topics = await Topic.find().populate('author').exec();
+    // topics.forEach(item => {
+    //     console.log('item', item);
+    //     item.updatedAtFormatted = moment(item.updatedAt).fromNow();
+    //     console.log('item', item);
+    // })
     // const topics = [
     //     {
     //         id: 1,

@@ -6,8 +6,7 @@ block content
       .col-sm-1
       .col-sm-8.custombackground
         .row.align-items-center
-          .col.text-left
-              h5 Author: #{topic.author.username}
+          .col
           .col
             .dropdown.float-right
               button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
@@ -19,7 +18,16 @@ block content
           .col
             img.card-img(src=topic.image alt=topic.title)
             h3.text-center.card-title=topic.title
+            h5.text-right Author: #{topic.author.username}
             p.card-text=topic.content
             p.card-text.text-right
               small.text-muted Last updated #{topic.updatedAt}
+        .row
+          .col
+            form(action='/comment' method='post' enctype="multipart/form-data")
+              input#exampleDropdownFormEmail2.form-control(type='hidden' name='topicId' value=topic.id)
+              .form-group
+                  label(for='content') Comment:
+                  textarea#content.form-control(rows='5' placeholder='Enter comment' name='comment')
+              button.btn.btn-primary(type='submit' value='submit') Comment  
       .col-sm-3.test
