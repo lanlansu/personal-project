@@ -8,7 +8,7 @@ block content
         .row.align-items-center
           .col
           .col
-            .dropdown.float-right
+            .dropdown.float-right.mt-2
               button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                  Dropdown
               .dropdown-menu(aria-labelledby='dropdownMenuButton')
@@ -19,15 +19,53 @@ block content
             img.card-img(src=topic.image alt=topic.title)
             h3.text-center.card-title=topic.title
             h5.text-right Author: #{topic.author.username}
-            p.card-text=topic.content
             p.card-text.text-right
-              small.text-muted Last updated #{topic.updatedAt}
+              small.text-muted Last updated #{topic.updatedAtFormatted}
+            p.card-text=topic.content
         .row
           .col
-            form(action='/comment' method='post' enctype="multipart/form-data")
+            form(action='/comment' method='post')
               input#exampleDropdownFormEmail2.form-control(type='hidden' name='topicId' value=topic.id)
               .form-group
                   label(for='content') Comment:
-                  textarea#content.form-control(rows='5' placeholder='Enter comment' name='comment')
+                  textarea#content.form-control(rows='2' placeholder='Enter comment' name='comment')
               button.btn.btn-primary(type='submit' value='submit') Comment  
+            hr
+            each comment in topic.comments
+              h5 #{comment.author.username}
+              p #{comment.comment}
+              hr
       .col-sm-3.test
+        .row
+          .col-sm
+            .card
+              .card-body
+                if user
+                  img.rounded-circle.imgCenter(src=user.avatar alt=user.username width='100' height='80')
+                  h5.card-title.text-center #{user.username}
+                  p.text-center Blogs: 2   
+                else
+                  a.btn.btn-primary.btn-sm(href='/signIn') SignIn
+                  a.btn.btn-primary.btn-sm.float-right(href='/signUp') SignUp
+        .row.mt-3
+          .col-sm
+                .card.bg-light.mb-3(style='max-width: 18rem;')
+                  .card-header Pets for Adoption
+                  .card-body
+                    p.card-text
+                      a.d-block(href='https://spca.bc.ca/locations/vancouver/') BCSPCA
+                      hr
+                      a.d-block(href='https://www.kijiji.ca/b-dogs-puppies/vancouver/c126l1700287') Adopt Puppies in Vancouver
+                      hr
+                      a.d-block(href='https://www.forallanimals.org/') For All Animals
+        .row
+          .col-sm
+                .card.bg-light.mb-3(style='max-width: 18rem;')
+                  .card-header Pets Clinics
+                  .card-body
+                    p.card-text
+                      a.d-block(href='https://www.atlasvetsinvancouver.com/animal-clinic-in-vancouver-bc?_vsrefdom=6042430009&gclid=CjwKCAjwpqv0BRABEiwA-TySwZF7frNawa2-M3nde_ieHXQSoSICq3d_uTUKU24tK5e70KIyx3BBqRoCZSsQAvD_BwE') Atlas Animal Hospital
+                      hr
+                      a.d-block(href='https://spca.bc.ca/locations/bcspca-hospital/') BC SPCA Vancouver Animal Hospital
+                      hr
+                      a.d-block(href='https://canadawestvets.com/') Canada West Veterinary Specialists

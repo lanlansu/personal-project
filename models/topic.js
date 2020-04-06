@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
 //Mongoose Model (Work as a Schema)
-const Topic = mongoose.model('Topic', {
+const TopicSchema = new mongoose.Schema({
     title: String,
     times: Number,
     createdAt: Date,
     updatedAt: Date,
-    updatedAtFormatted: String,
+    // updatedAtFormatted: String,
     image: String,
     content: String,
     author: {
@@ -20,5 +21,10 @@ const Topic = mongoose.model('Topic', {
         }
     }]
 });
+
+TopicSchema.virtual('updatedAtFormatted').get(function () {
+  return moment(this.updatedAt).fromNow();
+});
+const Topic = mongoose.model('Topic', TopicSchema);
 
 module.exports = Topic;

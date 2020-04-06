@@ -12,7 +12,12 @@ body
       a.nav-item.nav-link.active(href='/')
         | Home 
         span.sr-only (current)
-      a.nav-item.nav-link(href='/admin/create') Post             
+      a.nav-item.nav-link(href='/admin/create') Post
+      if user
+        a.nav-item.nav-link.text-right(href='/Logout') Logout
+      else
+        a.nav-item.nav-link.text-right(href='/signIn') SignIn
+        a.nav-item.nav-link.text-right(href='/signUp') SignUp               
  .container
   block content
  .card(style='background-color: lightblue;')

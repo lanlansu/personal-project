@@ -1,7 +1,7 @@
 const Topic = require('../models/topic');
 const comment = async (req, res) => {
     const id = req.body.topicId;
-    console.log("id", id);
+    console.log("body", req.body);
     const topic = await Topic.findById(id).exec();
     console.log("topic: ", topic)
     topic.comments.push({

@@ -34,18 +34,20 @@ block content
                 if user
                   img.rounded-circle.imgCenter(src=user.avatar alt=user.username width='100' height='80')
                   h5.card-title.text-center #{user.username}
-                  a.nav-item.nav-link.text-center(href='/logout') Logout    
+                  p.text-center Blogs: 2   
                 else
                   a.btn.btn-primary.btn-sm(href='/signIn') SignIn
                   a.btn.btn-primary.btn-sm.float-right(href='/signUp') SignUp
-        .row
+        .row.mt-3
           .col-sm
                 .card.bg-light.mb-3(style='max-width: 18rem;')
                   .card-header Pets for Adoption
                   .card-body
                     p.card-text
                       a.d-block(href='https://spca.bc.ca/locations/vancouver/') BCSPCA
+                      hr
                       a.d-block(href='https://www.kijiji.ca/b-dogs-puppies/vancouver/c126l1700287') Adopt Puppies in Vancouver
+                      hr
                       a.d-block(href='https://www.forallanimals.org/') For All Animals
         .row
           .col-sm
@@ -53,9 +55,11 @@ block content
                   .card-header Pets Clinics
                   .card-body
                     p.card-text
-                      a.d-block(href='https://spca.bc.ca/locations/vancouver/') BCSPCA
-                      a.d-block(href='https://www.kijiji.ca/b-dogs-puppies/vancouver/c126l1700287') Adopt Puppies in Vancouver
-                      a.d-block(href='https://www.forallanimals.org/') For All Animals
+                      a.d-block(href='https://www.atlasvetsinvancouver.com/animal-clinic-in-vancouver-bc?_vsrefdom=6042430009&gclid=CjwKCAjwpqv0BRABEiwA-TySwZF7frNawa2-M3nde_ieHXQSoSICq3d_uTUKU24tK5e70KIyx3BBqRoCZSsQAvD_BwE') Atlas Animal Hospital
+                      hr
+                      a.d-block(href='https://spca.bc.ca/locations/bcspca-hospital/') BC SPCA Vancouver Animal Hospital
+                      hr
+                      a.d-block(href='https://canadawestvets.com/') Canada West Veterinary Specialists
  
 
                    
