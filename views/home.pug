@@ -22,7 +22,7 @@ block content
                       .card-body
                         h5.card-title=topic.title
                         p.card-text
-                          small.text-muted Last updated #{topic.times} mins ago
+                          small.text-muted Last updated #{topic.updatedAt}
                     .col-md-2
                         h5 #{topic.author.username}
       .col-sm-3.test
@@ -56,6 +56,8 @@ block content
                       a.d-block(href='https://spca.bc.ca/locations/vancouver/') BCSPCA
                       a.d-block(href='https://www.kijiji.ca/b-dogs-puppies/vancouver/c126l1700287') Adopt Puppies in Vancouver
                       a.d-block(href='https://www.forallanimals.org/') For All Animals
+ 
+
                    
 
         

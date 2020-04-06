@@ -4,8 +4,9 @@ const update = async (req, res) => {
     const updateTopic = {
         title: req.body.title,
         times: req.body.times,
+        updatedAt: new Date(),
         content: req.body.content,
-        image: req.file.originalname
+        image: '/img/upload/' + req.file.originalname
     }
     let filter = { _id: id };
 

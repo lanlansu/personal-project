@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const Topic = mongoose.model('Topic', {
     title: String,
     times: Number,
+    createdAt: Date,
+    updatedAt: Date,
     image: String,
     content: String,
     author: {

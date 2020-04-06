@@ -3,6 +3,8 @@ const create = async (req, res) => {
     const newTopic = {
         title: req.body.title,
         times: req.body.times,
+        createdAt: new Date(),
+        updatedAt: new Date(),
         content: req.body.content,
         image: '/img/upload/' + req.file.originalname,
         author: req.user._id

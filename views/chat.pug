@@ -18,8 +18,8 @@ block content
         .row.justify-content-center.px-5
           .col
             img.card-img(src=topic.image alt=topic.title)
-            h5.card-title=topic.title
+            h3.text-center.card-title=topic.title
             p.card-text=topic.content
-            p.card-text
-              small.text-muted Last updated #{topic.times} mins ago
+            p.card-text.text-right
+              small.text-muted Last updated #{topic.updatedAt}
       .col-sm-3.test
